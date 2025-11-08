@@ -238,6 +238,11 @@
   animation: network-pulse 6s ease-in-out infinite;
 }
 
+/* ============================================
+   WALLET ADAPTER STYLES - ZEN HYDRO EDITION
+   ============================================ */
+
+/* Botón principal (mantener tu estilo actual) */
 .wallet-adapter-button,
 .wallet-adapter-button-trigger {
   border-radius: 999px !important;
@@ -256,7 +261,7 @@
 
 .dark .wallet-adapter-button,
 .dark .wallet-adapter-button-trigger {
-  color: oklch(0.98 0 0) !important; /* texto claro en dark */
+  color: oklch(0.98 0 0) !important;
   background:
     linear-gradient(180deg, color-mix(in oklab, var(--card) 85%, transparent), transparent) padding-box,
     radial-gradient(120% 120% at 0% 0%, color-mix(in oklab, var(--primary) 22%, transparent), transparent 60%) border-box !important;
@@ -275,80 +280,265 @@
   opacity: .98;
 }
 
-/* Icono dentro del botón */
 .wallet-adapter-button > svg,
 .wallet-adapter-button-start-icon,
 .wallet-adapter-button-end-icon {
   filter: drop-shadow(0 2px 6px color-mix(in oklab, var(--primary) 25%, transparent));
 }
 
-/* Modal */
-.wallet-adapter-modal-wrapper {
-  border-radius: 20px !important;
-  border: 1px solid var(--border) !important;
-  background:
-    linear-gradient(180deg, color-mix(in oklab, var(--card) 92%, transparent), transparent),
-    radial-gradient(140% 120% at 0% 0%, color-mix(in oklab, var(--accent) 8%, transparent), transparent 60%) !important;
-  box-shadow:
-    0 40px 80px rgba(0,0,0,.25),
-    inset 0 1px 0 rgba(255,255,255,.04) !important;
-  backdrop-filter: blur(8px);
+/* ====== MODAL OVERLAY - Efecto agua zen ====== */
+.wallet-adapter-modal-overlay {
+  background: 
+    radial-gradient(1400px 900px at 60% 20%, color-mix(in oklab, var(--primary) 8%, transparent) 0%, transparent 50%),
+    radial-gradient(1000px 800px at 30% 70%, color-mix(in oklab, var(--accent) 6%, transparent) 0%, transparent 50%),
+    linear-gradient(180deg, color-mix(in oklab, var(--background) 70%, transparent), color-mix(in oklab, var(--background) 85%, transparent)) !important;
+  backdrop-filter: blur(12px) saturate(110%) !important;
+  animation: modal-overlay-fade 0.3s ease-out;
 }
 
+.dark .wallet-adapter-modal-overlay {
+  background: 
+    radial-gradient(1400px 900px at 60% 20%, color-mix(in oklab, var(--primary) 12%, transparent) 0%, transparent 50%),
+    radial-gradient(1000px 800px at 30% 70%, color-mix(in oklab, var(--accent) 8%, transparent) 0%, transparent 50%),
+    linear-gradient(180deg, color-mix(in oklab, var(--background) 60%, transparent), color-mix(in oklab, var(--background) 75%, transparent)) !important;
+}
+
+@keyframes modal-overlay-fade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* ====== MODAL CONTAINER - Glassmorphism zen ====== */
+.wallet-adapter-modal-wrapper {
+  border-radius: 24px !important;
+  border: 1px solid color-mix(in oklab, var(--border) 60%, transparent) !important;
+  background:
+    linear-gradient(
+      135deg,
+      color-mix(in oklab, var(--card) 95%, transparent) 0%,
+      color-mix(in oklab, var(--card) 85%, transparent) 100%
+    ) !important;
+  box-shadow:
+    0 50px 100px color-mix(in oklab, var(--primary) 10%, rgba(0,0,0,.15)),
+    inset 0 1px 0 color-mix(in oklab, var(--foreground) 3%, transparent),
+    inset 0 -1px 0 color-mix(in oklab, var(--border) 20%, transparent) !important;
+  backdrop-filter: blur(20px) saturate(120%) !important;
+  animation: modal-slide-up 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.dark .wallet-adapter-modal-wrapper {
+  background:
+    linear-gradient(
+      135deg,
+      color-mix(in oklab, var(--card) 92%, transparent) 0%,
+      color-mix(in oklab, var(--card) 80%, transparent) 100%
+    ) !important;
+  border: 1px solid color-mix(in oklab, var(--border) 70%, transparent) !important;
+  box-shadow:
+    0 50px 100px rgba(0,0,0,.4),
+    inset 0 1px 0 color-mix(in oklab, var(--foreground) 6%, transparent),
+    inset 0 -1px 0 color-mix(in oklab, var(--border) 30%, transparent) !important;
+}
+
+@keyframes modal-slide-up {
+  from {
+    opacity: 0;
+    transform: translateY(40px) scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* ====== MODAL TITLE - Tipografía zen ====== */
 .wallet-adapter-modal-title {
   font-weight: 300 !important;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.12em !important;
   color: var(--foreground) !important;
+  opacity: 0.92;
+  font-size: 0.95rem !important;
+  text-transform: uppercase;
 }
 
-/* Lista de wallets */
-.wallet-adapter-list {
-  gap: 8px !important;
-}
-
-.wallet-adapter-list-item {
-  border-radius: 14px !important;
-  border: 1px solid var(--border) !important;
-  background: color-mix(in oklab, var(--card) 96%, transparent) !important;
-  transition: transform .08s ease, border-color .12s ease, background .12s ease;
-}
-
-.wallet-adapter-list-item:hover {
-  transform: translateY(-1px);
-  border-color: color-mix(in oklab, var(--primary) 35%, var(--border)) !important;
-  background: color-mix(in oklab, var(--card) 98%, var(--accent) 2%) !important;
-}
-
-/* Cerrar modal */
+/* ====== CLOSE BUTTON - Minimalista ====== */
 .wallet-adapter-modal-button-close {
-  border-radius: 999px !important;
-  border: 1px solid var(--border) !important;
-  background: color-mix(in oklab, var(--card) 92%, transparent) !important;
-  color: var(--foreground) !important;
-}
-
-/* Texto secundario en modal */
-.wallet-adapter-modal-middle {
+  border-radius: 12px !important;
+  border: 1px solid color-mix(in oklab, var(--border) 50%, transparent) !important;
+  background: color-mix(in oklab, var(--card) 90%, transparent) !important;
   color: var(--muted-foreground) !important;
+  transition: all 0.2s ease !important;
+  width: 32px !important;
+  height: 32px !important;
 }
 
-/* Estado conectado (pequeña pastilla de address) */
-.wallet-adapter-dropdown {
-  border-radius: 14px !important;
+.wallet-adapter-modal-button-close:hover {
+  background: color-mix(in oklab, var(--accent) 12%, var(--card) 90%) !important;
+  border-color: color-mix(in oklab, var(--primary) 30%, var(--border)) !important;
+  color: var(--foreground) !important;
+  transform: rotate(90deg);
+}
+
+/* ====== WALLET LIST - Cards con efecto agua ====== */
+.wallet-adapter-modal-list {
+  gap: 10px !important;
+  padding: 4px !important;
+}
+
+.wallet-adapter-modal-list-item {
+  border-radius: 16px !important;
+  border: 1px solid color-mix(in oklab, var(--border) 40%, transparent) !important;
+  background: 
+    linear-gradient(
+      120deg,
+      color-mix(in oklab, var(--card) 98%, transparent) 0%,
+      color-mix(in oklab, var(--card) 94%, transparent) 100%
+    ) !important;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  position: relative;
   overflow: hidden;
 }
-.wallet-adapter-dropdown-list {
-  border: 1px solid var(--border) !important;
-  background: color-mix(in oklab, var(--card) 96%, transparent) !important;
-  border-radius: 12px !important;
-  box-shadow: 0 16px 42px rgba(0,0,0,.25) !important;
+
+.dark .wallet-adapter-modal-list-item {
+  background: 
+    linear-gradient(
+      120deg,
+      color-mix(in oklab, var(--card) 95%, transparent) 0%,
+      color-mix(in oklab, var(--card) 88%, transparent) 100%
+    ) !important;
 }
 
-/* Accesibilidad / focus visible */
+/* Efecto ripple agua al hover */
+.wallet-adapter-modal-list-item::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    color-mix(in oklab, var(--primary) 8%, transparent) 0%,
+    transparent 70%
+  );
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  transition: width 0.8s cubic-bezier(0.4, 0, 0.2, 1), 
+              height 0.8s cubic-bezier(0.4, 0, 0.2, 1), 
+              opacity 0.8s ease;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.wallet-adapter-modal-list-item:hover::before {
+  width: 500px;
+  height: 500px;
+  opacity: 1;
+}
+
+.wallet-adapter-modal-list-item:hover {
+  transform: translateY(-2px) scale(1.01);
+  border-color: color-mix(in oklab, var(--primary) 35%, var(--border)) !important;
+  background: 
+    linear-gradient(
+      120deg,
+      color-mix(in oklab, var(--primary) 3%, var(--card) 98%) 0%,
+      color-mix(in oklab, var(--accent) 2%, var(--card) 96%) 100%
+    ) !important;
+  box-shadow: 
+    0 12px 40px color-mix(in oklab, var(--primary) 10%, transparent),
+    0 4px 12px color-mix(in oklab, var(--primary) 6%, transparent);
+}
+
+.wallet-adapter-modal-list-item:active {
+  transform: translateY(0) scale(0.99);
+}
+
+/* ====== WALLET ICON & NAME ====== */
+.wallet-adapter-modal-list-item-icon {
+  border-radius: 12px !important;
+  filter: drop-shadow(0 2px 8px color-mix(in oklab, var(--primary) 15%, transparent));
+  position: relative;
+  z-index: 1;
+}
+
+.wallet-adapter-modal-list-item-name {
+  color: var(--foreground) !important;
+  font-weight: 300 !important;
+  letter-spacing: 0.08em !important;
+  position: relative;
+  z-index: 1;
+}
+
+/* ====== MIDDLE SECTION (texto secundario) ====== */
+.wallet-adapter-modal-middle {
+  color: var(--muted-foreground) !important;
+  font-size: 0.825rem !important;
+  letter-spacing: 0.04em;
+}
+
+.wallet-adapter-modal-middle-button {
+  color: var(--primary) !important;
+  font-weight: 400 !important;
+  transition: all 0.2s ease;
+}
+
+.wallet-adapter-modal-middle-button:hover {
+  color: var(--accent) !important;
+}
+
+/* ====== DROPDOWN (estado conectado) ====== */
+.wallet-adapter-dropdown {
+  border-radius: 16px !important;
+  overflow: hidden;
+}
+
+.wallet-adapter-dropdown-list {
+  border: 1px solid color-mix(in oklab, var(--border) 50%, transparent) !important;
+  background: color-mix(in oklab, var(--card) 96%, transparent) !important;
+  border-radius: 14px !important;
+  box-shadow: 
+    0 20px 60px color-mix(in oklab, var(--primary) 8%, rgba(0,0,0,.2)),
+    0 8px 24px rgba(0,0,0,.12) !important;
+  backdrop-filter: blur(16px) !important;
+}
+
+.wallet-adapter-dropdown-list-item {
+  transition: all 0.2s ease !important;
+}
+
+.wallet-adapter-dropdown-list-item:hover {
+  background: color-mix(in oklab, var(--accent) 8%, transparent) !important;
+}
+
+/* ====== ACCESIBILIDAD ====== */
 .wallet-adapter-button:focus-visible,
 .wallet-adapter-button-trigger:focus-visible,
-.wallet-adapter-list-item:focus-visible,
+.wallet-adapter-modal-list-item:focus-visible,
 .wallet-adapter-modal-button-close:focus-visible {
-  outline: 2px solid color-mix(in oklab, var(--ring) 70%, transparent);
-  outline-offset: 2px;
+  outline: 2px solid color-mix(in oklab, var(--ring) 60%, transparent) !important;
+  outline-offset: 3px;
+}
+
+/* ====== SCROLL SUAVE EN MODAL ====== */
+.wallet-adapter-modal-list::-webkit-scrollbar {
+  width: 6px;
+}
+
+.wallet-adapter-modal-list::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.wallet-adapter-modal-list::-webkit-scrollbar-thumb {
+  background: color-mix(in oklab, var(--border) 50%, transparent);
+  border-radius: 999px;
+}
+
+.wallet-adapter-modal-list::-webkit-scrollbar-thumb:hover {
+  background: color-mix(in oklab, var(--primary) 40%, var(--border));
 }
