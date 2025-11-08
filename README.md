@@ -101,5 +101,3 @@ This is a **front-end scaffold only**. Backend integration with x402, Solana, an
 MIT
 
 ---
-
-*Built with v0 by Vercel*
