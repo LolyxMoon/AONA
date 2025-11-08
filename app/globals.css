@@ -237,3 +237,118 @@
 .network-pulse {
   animation: network-pulse 6s ease-in-out infinite;
 }
+
+.wallet-adapter-button,
+.wallet-adapter-button-trigger {
+  border-radius: 999px !important;
+  border: 1px solid var(--border) !important;
+  background:
+    linear-gradient(180deg, color-mix(in oklab, var(--card) 92%, transparent), transparent) padding-box,
+    radial-gradient(120% 120% at 0% 0%, color-mix(in oklab, var(--primary) 25%, transparent), transparent 60%) border-box !important;
+  color: var(--foreground) !important;
+  padding: 10px 14px !important;
+  height: 40px !important;
+  letter-spacing: 0.08em;
+  font-weight: 400 !important;
+  box-shadow: 0 10px 30px color-mix(in oklab, var(--primary) 18%, transparent) !important;
+  transition: transform .08s ease, box-shadow .12s ease, border-color .12s ease;
+}
+
+.dark .wallet-adapter-button,
+.dark .wallet-adapter-button-trigger {
+  color: oklch(0.98 0 0) !important; /* texto claro en dark */
+  background:
+    linear-gradient(180deg, color-mix(in oklab, var(--card) 85%, transparent), transparent) padding-box,
+    radial-gradient(120% 120% at 0% 0%, color-mix(in oklab, var(--primary) 22%, transparent), transparent 60%) border-box !important;
+}
+
+.wallet-adapter-button:hover,
+.wallet-adapter-button-trigger:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 16px 42px color-mix(in oklab, var(--primary) 22%, transparent) !important;
+  border-color: color-mix(in oklab, var(--primary) 35%, var(--border)) !important;
+}
+
+.wallet-adapter-button:active,
+.wallet-adapter-button-trigger:active {
+  transform: translateY(0);
+  opacity: .98;
+}
+
+/* Icono dentro del botón */
+.wallet-adapter-button > svg,
+.wallet-adapter-button-start-icon,
+.wallet-adapter-button-end-icon {
+  filter: drop-shadow(0 2px 6px color-mix(in oklab, var(--primary) 25%, transparent));
+}
+
+/* Modal */
+.wallet-adapter-modal-wrapper {
+  border-radius: 20px !important;
+  border: 1px solid var(--border) !important;
+  background:
+    linear-gradient(180deg, color-mix(in oklab, var(--card) 92%, transparent), transparent),
+    radial-gradient(140% 120% at 0% 0%, color-mix(in oklab, var(--accent) 8%, transparent), transparent 60%) !important;
+  box-shadow:
+    0 40px 80px rgba(0,0,0,.25),
+    inset 0 1px 0 rgba(255,255,255,.04) !important;
+  backdrop-filter: blur(8px);
+}
+
+.wallet-adapter-modal-title {
+  font-weight: 300 !important;
+  letter-spacing: 0.08em;
+  color: var(--foreground) !important;
+}
+
+/* Lista de wallets */
+.wallet-adapter-list {
+  gap: 8px !important;
+}
+
+.wallet-adapter-list-item {
+  border-radius: 14px !important;
+  border: 1px solid var(--border) !important;
+  background: color-mix(in oklab, var(--card) 96%, transparent) !important;
+  transition: transform .08s ease, border-color .12s ease, background .12s ease;
+}
+
+.wallet-adapter-list-item:hover {
+  transform: translateY(-1px);
+  border-color: color-mix(in oklab, var(--primary) 35%, var(--border)) !important;
+  background: color-mix(in oklab, var(--card) 98%, var(--accent) 2%) !important;
+}
+
+/* Cerrar modal */
+.wallet-adapter-modal-button-close {
+  border-radius: 999px !important;
+  border: 1px solid var(--border) !important;
+  background: color-mix(in oklab, var(--card) 92%, transparent) !important;
+  color: var(--foreground) !important;
+}
+
+/* Texto secundario en modal */
+.wallet-adapter-modal-middle {
+  color: var(--muted-foreground) !important;
+}
+
+/* Estado conectado (pequeña pastilla de address) */
+.wallet-adapter-dropdown {
+  border-radius: 14px !important;
+  overflow: hidden;
+}
+.wallet-adapter-dropdown-list {
+  border: 1px solid var(--border) !important;
+  background: color-mix(in oklab, var(--card) 96%, transparent) !important;
+  border-radius: 12px !important;
+  box-shadow: 0 16px 42px rgba(0,0,0,.25) !important;
+}
+
+/* Accesibilidad / focus visible */
+.wallet-adapter-button:focus-visible,
+.wallet-adapter-button-trigger:focus-visible,
+.wallet-adapter-list-item:focus-visible,
+.wallet-adapter-modal-button-close:focus-visible {
+  outline: 2px solid color-mix(in oklab, var(--ring) 70%, transparent);
+  outline-offset: 2px;
+}
