@@ -1,15 +1,17 @@
 "use client"
 
-import { useState, useEffect } from "react"
+import { useState, useEffect, useMemo } from "react"
+import Link from "next/link"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
+import { Button } from "@/components/ui/button"
 import { aonaAPI } from "@/lib/api-client"
 
 export default function NodesPage() {
   const [nodes, setNodes] = useState<any[]>([])
   const [loading, setLoading] = useState(true)
   const [searchQuery, setSearchQuery] = useState("")
-  const [rankFilter, setRankFilter] = useState<"all" | "Platinum" | "Gold" | "Silver" | "Bronze">("all")
+  const [rankFilter, setRankFilter] = useState<string>("all")
 
   useEffect(() => {
     async function fetchNodes() {
@@ -78,6 +80,8 @@ export default function NodesPage() {
 
   const getRankColor = (rank: string) => {
     switch (rank) {
+      case "Premium":
+        return "border-emerald-500/50 text-emerald-500 bg-emerald-500/10"
       case "Platinum":
         return "border-purple-500/50 text-purple-500"
       case "Gold":
@@ -88,6 +92,11 @@ export default function NodesPage() {
         return "border-orange-700/50 text-orange-700"
     }
   }
+
+  const rankOptions = useMemo(() => {
+    const uniqueRanks = Array.from(new Set(nodes.map((node) => node.reputation.rank))).filter(Boolean)
+    return ["all", ...uniqueRanks]
+  }, [nodes])
 
   return (
     <main className="min-h-screen pt-24 pb-24 px-6 bg-background">
@@ -147,8 +156,8 @@ export default function NodesPage() {
               onChange={(e) => setSearchQuery(e.target.value)}
               className="flex-1 px-4 py-3 rounded border border-border/20 bg-background text-sm font-extralight tracking-wide focus:outline-none focus:border-primary/40 transition-colors"
             />
-            <div className="flex gap-2">
-              {["all", "Platinum", "Gold", "Silver", "Bronze"].map((filter) => (
+            <div className="flex gap-2 overflow-x-auto pb-2">
+              {rankOptions.map((filter) => (
                 <button
                   key={filter}
                   onClick={() => setRankFilter(filter as any)}
@@ -158,7 +167,7 @@ export default function NodesPage() {
                       : "bg-background border border-border/20 text-foreground/70 hover:border-primary/30"
                   }`}
                 >
-                  {filter}
+                  {filter === "all" ? "All" : filter}
                 </button>
               ))}
             </div>
@@ -171,9 +180,12 @@ export default function NodesPage() {
             {filteredNodes.map(node => (
               <Card key={node.id} className="border-border/50 bg-card/50 backdrop-blur-sm hover:border-primary/30 transition-colors duration-500">
                 <CardHeader>
-                  <CardTitle className="flex items-center justify-between text-lg font-light">
-                    <span className="truncate">{node.name}</span>
-                    <Badge variant="outline" className={`text-xs ml-2 ${getRankColor(node.reputation.rank)}`}>
+                  <CardTitle className="flex items-center gap-2 text-lg font-light">
+                    <span className="truncate flex-1 min-w-0">{node.name}</span>
+                    <Badge
+                      variant="outline"
+                      className={`text-xs ml-2 shrink-0 whitespace-nowrap ${getRankColor(node.reputation.rank)}`}
+                    >
                       {node.reputation.rank}
                     </Badge>
                   </CardTitle>
@@ -241,6 +253,11 @@ export default function NodesPage() {
                       </div>
                     )}
                   </div>
+                  <Button asChild variant="outline" className="w-full mt-4 tracking-wide font-light">
+                    <Link href={`/nodes/${node.id}`}>
+                      View Node Details
+                    </Link>
+                  </Button>
                 </CardContent>
               </Card>
             ))}

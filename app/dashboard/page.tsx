@@ -21,6 +21,7 @@ export default function DashboardPage() {
   const [nodes, setNodes] = useState<any[]>([])
   const [agentData, setAgentData] = useState<any>(null)
   const [usdcPrice, setUsdcPrice] = useState<number>(1.0)
+  const [solPrice, setSolPrice] = useState<number>(0)
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
@@ -39,13 +40,15 @@ export default function DashboardPage() {
         const agent = await aonaAPI.getAgentOutput()
         setAgentData(agent)
 
-        // Fetch USDC price from Switchboard
+        // Fetch oracle prices from Switchboard
         try {
           const price = await aonaAPI.getPrices()
-          setUsdcPrice(price.prices?.USDC?.usd || 1.0)
+          setUsdcPrice(price.prices?.USDC?.usd ?? 1.0)
+          setSolPrice(price.prices?.SOL?.usd ?? 0)
         } catch (e) {
           console.log('Price fetch failed, using fallback')
           setUsdcPrice(1.0)
+          setSolPrice(0)
         }
 
         setLoading(false)
@@ -150,8 +153,18 @@ export default function DashboardPage() {
                 </CardTitle>
               </CardHeader>
               <CardContent>
-                <div className="text-4xl font-light mb-1 text-orange-600">${usdcPrice.toFixed(4)}</div>
-                <div className="text-xs text-muted-foreground font-light mb-2">USDC/USD Price</div>
+                <div className="space-y-3">
+                  <div>
+                    <p className="text-xs text-muted-foreground font-light mb-1">USDC/USD Price</p>
+                    <p className="text-3xl font-light text-orange-600">${usdcPrice.toFixed(4)}</p>
+                  </div>
+                  <div>
+                    <p className="text-xs text-muted-foreground font-light mb-1">SOL/USD Price</p>
+                    <p className="text-3xl font-light text-foreground">
+                      {solPrice ? `$${solPrice.toFixed(2)}` : "—"}
+                    </p>
+                  </div>
+                </div>
                 <Badge variant="outline" className="text-xs border-orange-500/50 text-orange-600">
                   On-Chain Data
                 </Badge>
@@ -206,8 +219,12 @@ export default function DashboardPage() {
                   <p className="text-sm font-light">Real-time</p>
                 </div>
                 <div>
-                  <p className="text-xs text-muted-foreground mb-1">Current Price</p>
+                  <p className="text-xs text-muted-foreground mb-1">USDC/USD</p>
                   <p className="text-sm font-light text-orange-600">${usdcPrice.toFixed(4)}</p>
+                </div>
+                <div>
+                  <p className="text-xs text-muted-foreground mb-1">SOL/USD</p>
+                  <p className="text-sm font-light">{solPrice ? `$${solPrice.toFixed(2)}` : "—"}</p>
                 </div>
               </div>
               <div className="flex gap-3">

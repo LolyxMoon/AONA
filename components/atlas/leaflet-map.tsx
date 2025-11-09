@@ -1,6 +1,6 @@
 "use client"
 
-import { useEffect } from "react"
+import { useEffect, useRef } from "react"
 import { MapContainer, TileLayer, Marker, Popup, useMap } from "react-leaflet"
 import L from "leaflet"
 import "leaflet/dist/leaflet.css"
@@ -49,13 +49,32 @@ function MapController() {
 }
 
 export default function LeafletMap({ usgsData }: LeafletMapProps) {
+  const mapRef = useRef<L.Map | null>(null)
+
+  useEffect(() => {
+    return () => {
+      if (mapRef.current) {
+        mapRef.current.remove()
+        mapRef.current = null
+      }
+      const existing = L.DomUtil.get("aona-leaflet-map")
+      if (existing) {
+        // @ts-ignore - leaflet adds private property for map tracking
+        existing._leaflet_id = null
+      }
+    }
+  }, [])
+
   return (
     <MapContainer
-      key="aona-map-unique-instance" // Prevents re-initialization error
+      id="aona-leaflet-map"
       center={[39.74, -104.99]}
       zoom={7}
       style={{ height: "100%", width: "100%" }}
       scrollWheelZoom={false}
+      whenCreated={(map) => {
+        mapRef.current = map
+      }}
     >
       <MapController />
       <TileLayer
