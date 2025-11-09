@@ -4,7 +4,7 @@ import { useEffect, useState } from "react"
 import { MetricCard } from "@/components/metric-card"
 import { LineChart } from "@/components/charts/line-chart"
 import { AreaChart } from "@/components/charts/area-chart"
-import { MapPlaceholder } from "@/components/map-placeholder"
+import { NetworkGraph } from "@/components/network-graph"
 import { RecentReadingsTable } from "@/components/tables/recent-readings-table"
 import { InkBrushDivider } from "@/components/ink-brush-divider"
 import { LoadingSpinner } from "@/components/loading-spinner"
@@ -145,38 +145,43 @@ export default function DashboardPage() {
               </CardContent>
             </Card>
 
-            <Card className="border-border/50 bg-gradient-to-br from-orange-500/10 to-yellow-500/10 border-orange-500/30">
+            <Card className="relative border border-border/60 bg-card/70 backdrop-blur-sm overflow-hidden">
+              <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-primary/40 to-transparent" />
               <CardHeader className="pb-3">
-                <CardTitle className="text-sm font-light tracking-wide flex items-center gap-2">
+                <CardTitle className="text-sm font-light tracking-[0.3em] uppercase text-muted-foreground flex items-center gap-2">
                   <span>⛓️</span>
-                  <span className="text-foreground">Switchboard Oracle</span>
+                  Switchboard Oracle
                 </CardTitle>
               </CardHeader>
-              <CardContent>
-                <div className="space-y-3">
+              <CardContent className="space-y-4">
+                <div className="grid grid-cols-2 gap-4">
                   <div>
-                    <p className="text-xs text-muted-foreground font-light mb-1">USDC/USD Price</p>
-                    <p className="text-3xl font-light text-orange-600">${usdcPrice.toFixed(4)}</p>
+                    <p className="text-[11px] uppercase tracking-[0.35em] text-muted-foreground mb-1">USDC/USD</p>
+                    <p className="text-2xl font-light text-foreground">${usdcPrice.toFixed(4)}</p>
                   </div>
                   <div>
-                    <p className="text-xs text-muted-foreground font-light mb-1">SOL/USD Price</p>
-                    <p className="text-3xl font-light text-foreground">
-                      {solPrice ? `$${solPrice.toFixed(2)}` : "—"}
-                    </p>
+                    <p className="text-[11px] uppercase tracking-[0.35em] text-muted-foreground mb-1">SOL/USD</p>
+                    <p className="text-2xl font-light text-foreground">{solPrice ? `$${solPrice.toFixed(2)}` : "—"}</p>
                   </div>
                 </div>
-                <Badge variant="outline" className="text-xs border-orange-500/50 text-orange-600">
-                  On-Chain Data
-                </Badge>
+                <div className="flex gap-2">
+                  <Badge variant="outline" className="text-[10px] tracking-widest uppercase border-border/60">
+                    On-chain feed
+                  </Badge>
+                  <Badge variant="outline" className="text-[10px] tracking-widest uppercase border-border/60">
+                    Verified
+                  </Badge>
+                </div>
               </CardContent>
             </Card>
           </div>
 
           {/* x402 Protocol Explainer */}
-          <Card className="mt-6 border-border/50 bg-gradient-to-r from-blue-500/5 to-purple-500/5 border-blue-500/20">
+          <Card className="relative mt-6 border border-border/60 bg-card/70 backdrop-blur-sm overflow-hidden">
+            <div className="absolute inset-x-6 top-0 h-px bg-gradient-to-r from-transparent via-secondary/30 to-transparent" />
             <CardHeader>
-              <CardTitle className="flex items-center gap-2 text-lg font-light tracking-wide">
-                🔐 x402 Payment Protocol Active
+              <CardTitle className="flex items-center gap-2 text-lg font-light tracking-[0.2em] uppercase text-muted-foreground">
+                🔐 x402 Payment Protocol
               </CardTitle>
             </CardHeader>
             <CardContent>
@@ -185,19 +190,20 @@ export default function DashboardPage() {
                 Nodes charge micropayments for water quality readings. The agent pays with real
                 SOL on Solana devnet.
               </p>
-              <div className="flex gap-3">
-                <Badge variant="outline" className="text-xs">Solana Devnet</Badge>
-                <Badge variant="outline" className="text-xs">HTTP 402</Badge>
-                <Badge variant="outline" className="text-xs">Real Payments</Badge>
+              <div className="flex flex-wrap gap-2 text-[10px] tracking-[0.35em] uppercase">
+                <Badge variant="outline" className="border-border/60">Solana Devnet</Badge>
+                <Badge variant="outline" className="border-border/60">HTTP 402</Badge>
+                <Badge variant="outline" className="border-border/60">Micropayments</Badge>
               </div>
             </CardContent>
           </Card>
 
           {/* Switchboard Oracle Explainer */}
-          <Card className="mt-6 border-border/50 bg-gradient-to-r from-orange-500/5 to-yellow-500/5 border-orange-500/20">
+          <Card className="relative mt-6 border border-border/60 bg-card/70 backdrop-blur-sm overflow-hidden">
+            <div className="absolute inset-x-6 top-0 h-px bg-gradient-to-r from-transparent via-primary/30 to-transparent" />
             <CardHeader>
-              <CardTitle className="flex items-center gap-2 text-lg font-light tracking-wide">
-                ⛓️ Switchboard Oracle Integration
+              <CardTitle className="flex items-center gap-2 text-lg font-light tracking-[0.2em] uppercase text-muted-foreground">
+                ⛓️ Switchboard Oracle
               </CardTitle>
             </CardHeader>
             <CardContent>
@@ -218,19 +224,11 @@ export default function DashboardPage() {
                   <p className="text-xs text-muted-foreground mb-1">Update Frequency</p>
                   <p className="text-sm font-light">Real-time</p>
                 </div>
-                <div>
-                  <p className="text-xs text-muted-foreground mb-1">USDC/USD</p>
-                  <p className="text-sm font-light text-orange-600">${usdcPrice.toFixed(4)}</p>
-                </div>
-                <div>
-                  <p className="text-xs text-muted-foreground mb-1">SOL/USD</p>
-                  <p className="text-sm font-light">{solPrice ? `$${solPrice.toFixed(2)}` : "—"}</p>
-                </div>
               </div>
-              <div className="flex gap-3">
-                <Badge variant="outline" className="text-xs border-orange-500/50 text-orange-600">Switchboard</Badge>
-                <Badge variant="outline" className="text-xs">On-Chain</Badge>
-                <Badge variant="outline" className="text-xs">Verifiable</Badge>
+              <div className="flex flex-wrap gap-2 text-[10px] tracking-[0.35em] uppercase">
+                <Badge variant="outline" className="border-border/60">Switchboard</Badge>
+                <Badge variant="outline" className="border-border/60">On-Chain</Badge>
+                <Badge variant="outline" className="border-border/60">Verifiable</Badge>
               </div>
             </CardContent>
           </Card>
@@ -315,10 +313,8 @@ export default function DashboardPage() {
 
         {/* Network Map */}
         <section className="mb-16">
-          <h2 className="text-2xl mb-6">Network Status</h2>
-          <div className="p-6 rounded-lg border border-border/50 bg-card/50 backdrop-blur-sm">
-            <MapPlaceholder />
-          </div>
+          <h2 className="text-2xl mb-6">Network Topology</h2>
+          <NetworkGraph nodes={nodes} />
         </section>
 
         {/* Recent Readings */}

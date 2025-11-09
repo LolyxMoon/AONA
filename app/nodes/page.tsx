@@ -41,6 +41,30 @@ export default function NodesPage() {
     return matchesSearch && matchesRank
   })
 
+  const totalReadings = nodes.reduce((sum, n) => sum + (n.reputation.totalReadings || 0), 0)
+  const totalEarned = nodes.reduce((sum, n) => sum + (n.earned || 0), 0)
+  const avgReputation = nodes.reduce((sum, n) => sum + n.reputation.score, 0) / nodes.length
+
+  const getRankColor = (rank: string) => {
+    switch (rank) {
+      case "Premium":
+        return "border-emerald-500/50 text-emerald-500 bg-emerald-500/10"
+      case "Platinum":
+        return "border-purple-500/50 text-purple-500"
+      case "Gold":
+        return "border-yellow-500/50 text-yellow-500"
+      case "Silver":
+        return "border-gray-400/50 text-gray-400"
+      default:
+        return "border-orange-700/50 text-orange-700"
+    }
+  }
+
+  const rankOptions = useMemo(() => {
+    const uniqueRanks = Array.from(new Set(nodes.map((node) => node.reputation.rank))).filter(Boolean)
+    return ["all", ...uniqueRanks]
+  }, [nodes])
+
   if (loading) {
     return (
       <main className="min-h-screen pt-24 pb-24 px-6 bg-background">
@@ -73,30 +97,6 @@ export default function NodesPage() {
       </main>
     )
   }
-
-  const totalReadings = nodes.reduce((sum, n) => sum + (n.reputation.totalReadings || 0), 0)
-  const totalEarned = nodes.reduce((sum, n) => sum + (n.earned || 0), 0)
-  const avgReputation = nodes.reduce((sum, n) => sum + n.reputation.score, 0) / nodes.length
-
-  const getRankColor = (rank: string) => {
-    switch (rank) {
-      case "Premium":
-        return "border-emerald-500/50 text-emerald-500 bg-emerald-500/10"
-      case "Platinum":
-        return "border-purple-500/50 text-purple-500"
-      case "Gold":
-        return "border-yellow-500/50 text-yellow-500"
-      case "Silver":
-        return "border-gray-400/50 text-gray-400"
-      default:
-        return "border-orange-700/50 text-orange-700"
-    }
-  }
-
-  const rankOptions = useMemo(() => {
-    const uniqueRanks = Array.from(new Set(nodes.map((node) => node.reputation.rank))).filter(Boolean)
-    return ["all", ...uniqueRanks]
-  }, [nodes])
 
   return (
     <main className="min-h-screen pt-24 pb-24 px-6 bg-background">
