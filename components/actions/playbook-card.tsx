@@ -18,7 +18,7 @@ export function PlaybookCard({ playbook }: PlaybookCardProps) {
           </span>
           {playbook.bountyLinked && (
             <span className="px-3 py-1 text-xs font-light rounded-full bg-secondary/10 text-secondary">
-              Bounty Linked
+              Funded
             </span>
           )}
         </div>
@@ -70,7 +70,7 @@ export function PlaybookCard({ playbook }: PlaybookCardProps) {
         </button>
         {playbook.bountyLinked && (
           <button className="px-4 py-2 border border-border/40 rounded-md font-light text-sm hover:bg-muted/50 transition-colors">
-            See Bounty
+            View Funding
           </button>
         )}
       </div>

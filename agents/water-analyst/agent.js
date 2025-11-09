@@ -425,7 +425,7 @@ class WaterAnalystAgent {
       await this.initialize();
 
       // 2. Discover nodes
-      const nodes = await discoverNodes();
+      const nodes = await this.discoverNodes();
 
       if (nodes.length === 0) {
         console.log("⚠️  No nodes available for consultation");
