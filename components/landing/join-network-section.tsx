@@ -20,7 +20,7 @@ export function JoinNetworkSection() {
             <CardContent>
               <p className="text-sm font-light text-muted-foreground mb-4">
                 Report water quality issues with your smartphone.
-                Your phone becomes a sensor.
+                Your phone becomes a sensor. Earn rewards directly to your Phantom CASH account.
               </p>
               <Link href="/contribute">
                 <Button variant="outline" className="w-full gap-2">

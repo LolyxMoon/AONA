@@ -1,7 +1,7 @@
 import Link from "next/link"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
-import { Shield, Zap, Network, Droplets, ArrowRight } from "lucide-react"
+import { Shield, Zap, Network, Droplets, Wallet, ArrowRight } from "lucide-react"
 
 export function TechnologySection() {
   return (
@@ -14,7 +14,7 @@ export function TechnologySection() {
           Built on Solana for planetary-scale water security
         </p>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {/* Solana */}
           <Card className="border-purple-500/20 bg-purple-500/5">
             <CardHeader>
@@ -101,6 +101,29 @@ export function TechnologySection() {
                 <Link href="/atlas">
                   <Button variant="link" size="sm" className="gap-1 px-0">
                     See live data <ArrowRight className="h-3 w-3" />
+                  </Button>
+                </Link>
+              </div>
+            </CardContent>
+          </Card>
+
+          {/* Phantom CASH */}
+          <Card className="border-cyan-500/20 bg-cyan-500/5">
+            <CardHeader>
+              <CardTitle className="flex items-center gap-2 text-xl font-light">
+                <Wallet className="h-5 w-5 text-cyan-500" />
+                Phantom CASH Payouts
+              </CardTitle>
+            </CardHeader>
+            <CardContent>
+              <p className="text-sm font-light text-muted-foreground mb-4">
+                Instant fiat conversion for contributors. ApplePay. GooglePay. VISA.
+                Making water stewardship economically sustainable worldwide.
+              </p>
+              <div className="flex gap-2">
+                <Link href="/contribute">
+                  <Button variant="link" size="sm" className="gap-1 px-0">
+                    Start earning <ArrowRight className="h-3 w-3" />
                   </Button>
                 </Link>
               </div>

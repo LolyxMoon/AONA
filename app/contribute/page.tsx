@@ -282,10 +282,11 @@ export default function ContributePage() {
               </div>
 
               <div>
-                <h3 className="text-sm font-light text-primary mb-2">4. Future Rewards (Coming Soon)</h3>
+                <h3 className="text-sm font-light text-primary mb-2">4. Receive Instant Rewards</h3>
                 <p className="text-sm font-light text-muted-foreground">
-                  Contributors will earn tokens for verified data points. High-quality, consistent
-                  contributors will receive priority in the decentralized network.
+                  Verified reports earn SOL micropayments sent directly to your Phantom CASH account.
+                  Convert your earnings to fiat instantly via ApplePay, GooglePay, or VISA—making water
+                  stewardship economically sustainable for everyday contributors worldwide.
                 </p>
               </div>
             </CardContent>

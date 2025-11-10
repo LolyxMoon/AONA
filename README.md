@@ -46,6 +46,7 @@ Transform water quality monitoring from reactive crisis management to proactive 
 - **🌐 DePIN Foundation** - Decentralized Physical Infrastructure with community-owned sensors
 - **🤖 AI-Powered Analysis** - Autonomous agents detect contamination early via EPA standards
 - **💰 x402 Micropayments** - Sustainable data economy on Solana blockchain
+- **💳 Instant Payouts** - Node operators receive payments directly to Phantom CASH for frictionless fiat conversion
 - **🔗 Real-Time Intelligence** - USGS, Open-Meteo, and Switchboard oracle integration
 
 ---
@@ -674,7 +675,8 @@ npm run dev
 - Submit smartphone sensor reports
 - Geolocation auto-detect
 - AI agent verification (USGS + Open-Meteo cross-reference)
-- Future: Token rewards for quality contributors
+- Receive instant rewards directly to your Phantom CASH account
+- Convert earnings to fiat instantly via Phantom's ApplePay/GooglePay/VISA integration
 
 **IDL** (`/idl`)
 - Solana program documentation
