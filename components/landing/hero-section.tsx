@@ -18,7 +18,7 @@ export function HeroSection() {
             </p>
 
             <p className="text-base text-muted-foreground font-normal tracking-wide max-w-xl mx-auto leading-relaxed">
-  Hydrology for planetary resilience
+  CONTRACT: xxxxxxxxxxxxxxxxxxxxxxxxxxx
 </p>
           </div>
 
