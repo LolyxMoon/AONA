@@ -17,9 +17,9 @@ export function HeroSection() {
               Autonomous Oracles for Networked Aquatic Systems
             </p>
 
-            <p className="text-xs text-muted-foreground/40 font-extralight tracking-[0.18em] max-w-xl mx-auto leading-relaxed">
-              Hydrology for planetary resilience
-            </p>
+            <p className="text-base text-muted-foreground font-normal tracking-wide max-w-xl mx-auto leading-relaxed">
+  Hydrology for planetary resilience
+</p>
           </div>
 
           <div className="py-24">
