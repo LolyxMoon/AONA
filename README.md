@@ -2,7 +2,7 @@
 
 **Autonomous Oracles for Networked Aquatic systems** — Real water protection through decentralized infrastructure and AI-powered analysis on Solana.
 
-## 🌊 Mission
+## 🌊 Missiona
 
 Transform water quality monitoring from reactive crisis management to **proactive protection**:
 
