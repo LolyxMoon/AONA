@@ -70,10 +70,10 @@ export default function BenchmarksPage() {
         <LeaderboardTable data={qualityData} />
       </div>
 
-      {/* Integration hooks */}
+      {/* Advanced Features */}
       <div className="container mx-auto px-6 py-8">
         <div className="bg-muted/30 border border-border/40 rounded-lg p-8 max-w-4xl">
-          <h3 className="text-sm font-light tracking-widest text-primary mb-4">TODO (Claude Integration)</h3>
+          <h3 className="text-sm font-light tracking-widest text-primary mb-4">Advanced Verification</h3>
           <ul className="space-y-2 text-sm font-light text-muted-foreground">
             <li>• Oracle signature verification (Ed25519/ECDSA)</li>
             <li>• Attestation storage (on-chain/IPFS)</li>

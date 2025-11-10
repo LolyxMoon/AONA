@@ -49,7 +49,7 @@ agent.onOnline(() => {
         </div>
 
         <p className="text-xs font-light text-muted-foreground italic">
-          TODO(Claude): Build edge agent with signing, buffering, and retry logic
+          Edge agent SDK coming soon with signing, buffering, and retry logic
         </p>
       </div>
     </Card>

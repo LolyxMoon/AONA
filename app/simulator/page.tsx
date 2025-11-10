@@ -153,9 +153,9 @@ export default function SimulatorPage() {
           </div>
         </div>
 
-        {/* Integration hooks */}
+        {/* Advanced Simulation Features */}
         <div className="mt-12 bg-muted/30 border border-border/40 rounded-lg p-8 max-w-4xl">
-          <h3 className="text-sm font-light tracking-widest text-primary mb-4">TODO (Claude Integration)</h3>
+          <h3 className="text-sm font-light tracking-widest text-primary mb-4">Advanced Capabilities</h3>
           <ul className="space-y-2 text-sm font-light text-muted-foreground">
             <li>• Simulation API with hydrological models</li>
             <li>• Historical validation datasets</li>

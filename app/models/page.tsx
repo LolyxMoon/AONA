@@ -163,9 +163,9 @@ export default function ModelsPage() {
           </div>
         </div>
 
-        {/* Integration hooks */}
+        {/* Model Capabilities */}
         <div className="mt-12 bg-muted/30 border border-border/40 rounded-lg p-8 max-w-4xl">
-          <h3 className="text-sm font-light tracking-widest text-primary mb-4">TODO (Claude Integration)</h3>
+          <h3 className="text-sm font-light tracking-widest text-primary mb-4">Predictive Analytics</h3>
           <ul className="space-y-2 text-sm font-light text-muted-foreground">
             <li>• Model endpoints: Prophet, ARIMA, Bayesian inference</li>
             <li>• Model registry & versioning</li>

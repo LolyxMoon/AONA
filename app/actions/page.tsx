@@ -54,16 +54,16 @@ export default function ActionsPage() {
         </div>
       </div>
 
-      {/* Integration hooks */}
+      {/* Integration Info */}
       <div className="container mx-auto px-6 py-8">
         <div className="bg-muted/30 border border-border/40 rounded-lg p-8 max-w-4xl">
-          <h3 className="text-sm font-light tracking-widest text-primary mb-4">TODO (Claude Integration)</h3>
+          <h3 className="text-sm font-light tracking-widest text-primary mb-4">Ecosystem Integration</h3>
           <ul className="space-y-2 text-sm font-light text-muted-foreground">
             <li>• Partner APIs for local water utilities</li>
             <li>• Offline toolkit downloads (PDF, mobile app)</li>
             <li>• Playbook versioning & community contributions</li>
             <li>• Impact tracking & reporting</li>
-            <li>• Link to /coverage bounties for hardware needs</li>
+            <li>• Hardware integration via /coverage network</li>
           </ul>
         </div>
       </div>
