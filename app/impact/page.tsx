@@ -4,6 +4,7 @@ import { useEffect, useState } from "react"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { InkBrushDivider } from "@/components/ink-brush-divider"
+import { PageHeading } from "@/components/page-heading"
 import { aonaAPI } from "@/lib/api-client"
 
 interface ImpactMetrics {
@@ -110,21 +111,16 @@ export default function ImpactPage() {
     <div className="min-h-screen bg-background pt-20">
       {/* Header */}
       <div className="container mx-auto px-6 py-12">
-        <div className="max-w-3xl">
-          <h1 className="text-4xl font-extralight tracking-[0.2em] text-foreground/80 mb-6">
-            Real Impact
-          </h1>
-          <p className="text-base font-light text-muted-foreground leading-relaxed tracking-[0.2em] uppercase">
-            Beyond blockchain metrics: the real-world impact of AONA's water protection network.
-            Every node monitors water quality, every alert prevents contamination, every action protects communities.
-          </p>
-          <div className="flex gap-2 mt-6">
-            <Badge variant="outline" className="text-xs">🌊 Water Protection</Badge>
-            <Badge variant="outline" className="text-xs">🏘️ Community Health</Badge>
-            <Badge variant="outline" className="text-xs">💰 Crisis Prevention</Badge>
-            <Badge variant="outline" className="text-xs border-green-500/50 text-green-500">🔴 LIVE</Badge>
-          </div>
-        </div>
+        <PageHeading
+          title="Real Impact"
+          subtitle="Beyond blockchain metrics: the real-world impact of AONA's water protection network. Every node monitors water quality, every alert prevents contamination, every action protects communities."
+          badges={[
+            { label: "Water Protection", icon: "🌊" },
+            { label: "Community Health", icon: "🏘️" },
+            { label: "Crisis Prevention", icon: "💰" },
+            { label: "Live Network", icon: "🔴", accent: "live" }
+          ]}
+        />
       </div>
 
       <InkBrushDivider />

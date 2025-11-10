@@ -4,6 +4,7 @@ import { useState } from "react"
 import { InkBrushDivider } from "@/components/ink-brush-divider"
 import { PlaybookCard } from "@/components/actions/playbook-card"
 import { generateMockPlaybooks } from "@/lib/mock"
+import { PageHeading } from "@/components/page-heading"
 
 export default function ActionsPage() {
   const playbooks = generateMockPlaybooks()
@@ -17,13 +18,10 @@ export default function ActionsPage() {
     <div className="min-h-screen bg-background pt-20">
       {/* Header */}
       <div className="container mx-auto px-6 py-12">
-        <div className="max-w-3xl">
-          <h1 className="text-5xl font-light tracking-widest text-foreground mb-6">Action Playbooks</h1>
-          <p className="text-lg font-light text-muted-foreground leading-relaxed tracking-wide">
-            Transform water intelligence into real-world stewardship. Explore evidence-based playbooks that guide
-            communities from data signals to sustainable water practices.
-          </p>
-        </div>
+        <PageHeading
+          title="Action Playbooks"
+          subtitle="Transform water intelligence into real-world stewardship. Explore evidence-based playbooks that guide communities from data signals to sustainable water practices."
+        />
       </div>
 
       <InkBrushDivider />

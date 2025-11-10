@@ -7,6 +7,7 @@ import { ForecastChart } from "@/components/models/forecast-chart"
 import { AnomalyTable } from "@/components/models/anomaly-table"
 import { generateMockAnomalies } from "@/lib/mock"
 import { forecastLinear, calculateConfidenceBands, detectSeasonality } from "@/lib/science"
+import { PageHeading } from "@/components/page-heading"
 
 type ModelTab = "anomaly" | "forecast" | "drought"
 
@@ -27,13 +28,10 @@ export default function ModelsPage() {
     <div className="min-h-screen bg-background pt-20">
       {/* Header */}
       <div className="container mx-auto px-6 py-12">
-        <div className="max-w-3xl">
-          <h1 className="text-5xl font-light tracking-widest text-foreground mb-6">Model Lab</h1>
-          <p className="text-lg font-light text-muted-foreground leading-relaxed tracking-wide">
-            Interactive model playground for water quality forecasting and anomaly detection. Explore trend analysis,
-            confidence bands, and drought indices with adjustable parameters.
-          </p>
-        </div>
+        <PageHeading
+          title="Model Lab"
+          subtitle="Interactive model playground for water quality forecasting and anomaly detection. Explore trend analysis, confidence bands, and drought indices with adjustable parameters."
+        />
       </div>
 
       <InkBrushDivider />

@@ -2,8 +2,8 @@
 
 import { useState } from "react"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { Badge } from "@/components/ui/badge"
 import { InkBrushDivider } from "@/components/ink-brush-divider"
+import { PageHeading } from "@/components/page-heading"
 
 export default function ContributePage() {
   const [formData, setFormData] = useState({
@@ -76,20 +76,15 @@ export default function ContributePage() {
     <div className="min-h-screen bg-background pt-20">
       {/* Header */}
       <div className="container mx-auto px-6 py-12">
-        <div className="max-w-3xl">
-          <h1 className="text-5xl font-light tracking-widest text-foreground mb-6">
-            Contribute to the Network
-          </h1>
-          <p className="text-lg font-light text-muted-foreground leading-relaxed tracking-wide">
-            Help build the world's most comprehensive water quality dataset. Report water conditions
-            from anywhere using your smartphone. Every data point helps protect communities.
-          </p>
-          <div className="flex gap-2 mt-6">
-            <Badge variant="outline" className="text-xs">📱 Smartphone Sensors</Badge>
-            <Badge variant="outline" className="text-xs">🌍 Global Coverage</Badge>
-            <Badge variant="outline" className="text-xs">🔗 DePIN Network</Badge>
-          </div>
-        </div>
+        <PageHeading
+          title="Contribute to the Network"
+          subtitle="Help build the world's most comprehensive water quality dataset. Report water conditions from anywhere using your smartphone. Every data point helps protect communities."
+          badges={[
+            { label: "Smartphone Sensors", icon: "📱" },
+            { label: "Global Coverage", icon: "🌍" },
+            { label: "DePIN Network", icon: "🔗" }
+          ]}
+        />
       </div>
 
       <InkBrushDivider />

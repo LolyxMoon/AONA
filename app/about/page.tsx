@@ -1,4 +1,5 @@
 import { InkBrushDivider } from "@/components/ink-brush-divider"
+import { PageHeading } from "@/components/page-heading"
 
 export default function AboutPage() {
   return (
@@ -26,12 +27,11 @@ export default function AboutPage() {
       </div>
 
       <div className="container mx-auto max-w-4xl">
-        <div className="mb-12 text-center">
-          <h1 className="mb-2">About AONA</h1>
-          <p className="text-muted-foreground font-light text-sm tracking-wide">
-            Autonomous Oracles for Networked Aquatic Systems
-          </p>
-        </div>
+        <PageHeading
+          title="About AONA"
+          subtitle="Autonomous Oracles for Networked Aquatic Systems"
+          align="center"
+        />
 
         <InkBrushDivider />
 

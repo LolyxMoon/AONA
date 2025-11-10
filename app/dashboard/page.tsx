@@ -12,6 +12,7 @@ import { AgentActivityCard } from "@/components/agent-activity-card"
 import { RealNodesCard } from "@/components/real-nodes-card"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
+import { PageHeading } from "@/components/page-heading"
 import { aonaAPI } from "@/lib/api-client"
 import { useStore } from "@/lib/store"
 
@@ -92,18 +93,20 @@ export default function DashboardPage() {
     <main className="min-h-screen pt-24 pb-16 px-6">
       <div className="container mx-auto max-w-7xl">
         <div className="mb-12">
-          <div className="flex items-center justify-between">
-            <div>
-              <h1 className="text-4xl font-extralight tracking-[0.2em] text-foreground/80 mb-2">
-                Hydrology Dashboard
-              </h1>
-              <p className="text-muted-foreground font-light text-sm tracking-[0.3em] uppercase">
-                Real-time aquatic system monitoring
-              </p>
-            </div>
-            <div className="text-right">
-              <p className="text-xs font-light text-muted-foreground">Last updated</p>
-              <p className="text-sm font-light text-primary">{new Date(lastUpdate).toLocaleTimeString()}</p>
+          <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
+            <PageHeading
+              title="Hydrology Dashboard"
+              subtitle="Real-time aquatic system monitoring"
+              badges={[
+                { label: "Solana Devnet" },
+                { label: "HTTP 402" },
+                { label: "Live Network", icon: "🔴", accent: "live" }
+              ]}
+              className="max-w-2xl"
+            />
+            <div className="text-right text-xs font-light text-muted-foreground">
+              <p className="tracking-[0.4em] uppercase">Last update</p>
+              <p className="text-sm text-primary mt-2">{new Date(lastUpdate).toLocaleTimeString()}</p>
             </div>
           </div>
         </div>

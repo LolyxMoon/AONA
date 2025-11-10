@@ -5,6 +5,7 @@ import { DQScore } from "@/components/benchmarks/dq-score"
 import { IntegrityBadge } from "@/components/benchmarks/integrity-badge"
 import { LeaderboardTable } from "@/components/benchmarks/leaderboard-table"
 import { generateMockDataQuality } from "@/lib/mock"
+import { PageHeading } from "@/components/page-heading"
 
 export default function BenchmarksPage() {
   const qualityData = generateMockDataQuality()
@@ -13,13 +14,10 @@ export default function BenchmarksPage() {
     <div className="min-h-screen bg-background pt-20">
       {/* Header */}
       <div className="container mx-auto px-6 py-12">
-        <div className="max-w-3xl">
-          <h1 className="text-5xl font-light tracking-widest text-foreground mb-6">Data Integrity & Sensor QA</h1>
-          <p className="text-lg font-light text-muted-foreground leading-relaxed tracking-wide">
-            Build trust through transparency. Monitor data quality scores, agent signatures, and sensor reliability
-            metrics across the AONA network.
-          </p>
-        </div>
+        <PageHeading
+          title="Data Integrity & Sensor QA"
+          subtitle="Build trust through transparency. Monitor data quality scores, agent signatures, and sensor reliability metrics across the AONA network."
+        />
       </div>
 
       <InkBrushDivider />

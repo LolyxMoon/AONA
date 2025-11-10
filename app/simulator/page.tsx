@@ -7,6 +7,7 @@ import { ScenarioCharts } from "@/components/simulator/scenario-charts"
 import { ScenarioMap } from "@/components/simulator/scenario-map"
 import { generateMockScenarios } from "@/lib/mock"
 import type { Scenario } from "@/lib/mock"
+import { PageHeading } from "@/components/page-heading"
 
 export default function SimulatorPage() {
   const scenarios = generateMockScenarios()
@@ -41,13 +42,10 @@ export default function SimulatorPage() {
     <div className="min-h-screen bg-background pt-20">
       {/* Header */}
       <div className="container mx-auto px-6 py-12">
-        <div className="max-w-3xl">
-          <h1 className="text-5xl font-light tracking-widest text-foreground mb-6">Scenario Simulator</h1>
-          <p className="text-lg font-light text-muted-foreground leading-relaxed tracking-wide">
-            Explore what-if scenarios for water systems. Adjust rainfall, demand, sensor density, and contamination
-            events to understand system resilience and predict outcomes.
-          </p>
-        </div>
+        <PageHeading
+          title="Scenario Simulator"
+          subtitle="Explore what-if scenarios for water systems. Adjust rainfall, demand, sensor density, and contamination events to understand system resilience and predict outcomes."
+        />
       </div>
 
       <InkBrushDivider />

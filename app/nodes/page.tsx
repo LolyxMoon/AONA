@@ -5,6 +5,7 @@ import Link from "next/link"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
+import { PageHeading } from "@/components/page-heading"
 import { aonaAPI } from "@/lib/api-client"
 
 export default function NodesPage() {
@@ -102,17 +103,16 @@ export default function NodesPage() {
     <main className="min-h-screen pt-24 pb-24 px-6 bg-background">
       {/* Header */}
       <div className="container mx-auto max-w-6xl mb-16">
-        <h1 className="text-4xl font-extralight tracking-[0.2em] text-foreground/80 mb-4 text-center">
-          Water Quality Nodes
-        </h1>
-        <p className="text-sm font-extralight text-muted-foreground/60 tracking-[0.15em] text-center max-w-xl mx-auto leading-loose mb-4">
-          Real-time monitoring network powered by x402 protocol
-        </p>
-        <div className="flex justify-center gap-2">
-          <Badge variant="outline" className="text-xs">Solana Devnet</Badge>
-          <Badge variant="outline" className="text-xs">x402 Payments</Badge>
-          <Badge variant="outline" className="text-xs border-green-500/50 text-green-500">🔴 LIVE</Badge>
-        </div>
+        <PageHeading
+          title="Water Quality Nodes"
+          subtitle="Real-time monitoring network powered by the x402 payment protocol."
+          align="center"
+          badges={[
+            { label: "Solana Devnet" },
+            { label: "x402 Payments" },
+            { label: "Live Network", icon: "🔴", accent: "live" }
+          ]}
+        />
       </div>
 
       <div className="container mx-auto max-w-6xl space-y-16">

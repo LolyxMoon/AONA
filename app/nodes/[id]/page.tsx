@@ -6,6 +6,7 @@ import Link from "next/link"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { InkBrushDivider } from "@/components/ink-brush-divider"
+import { PageHeading } from "@/components/page-heading"
 
 interface NodeDetail {
   id: string
@@ -159,23 +160,15 @@ export default function NodeDetailPage() {
             ← Nodes
           </Link>
         </div>
-        <div className="max-w-4xl">
-          <div className="flex items-center gap-3 mb-4">
-            <Badge variant="outline" className="text-xs border-green-500/50 text-green-500">
-              🔴 LIVE
-            </Badge>
-            <Badge variant="outline" className="text-xs">
-              {node.reputation.rank}
-            </Badge>
-          </div>
-          <h1 className="text-5xl font-light tracking-widest text-foreground mb-6">
-            {node.name}
-          </h1>
-          <p className="text-lg font-light text-muted-foreground leading-relaxed tracking-wide">
-            Real-time water quality monitoring powered by AONA DePIN network,
-            integrated with Open-Meteo weather API and USGS Water Services.
-          </p>
-        </div>
+        <PageHeading
+          title={node.name}
+          subtitle="Real-time water quality monitoring powered by AONA DePIN network, integrated with Open-Meteo weather API and USGS Water Services."
+          badges={[
+            { label: "Live Node", icon: "🔴", accent: "live" },
+            { label: `${node.reputation.rank} Tier` }
+          ]}
+          className="max-w-4xl"
+        />
       </div>
 
       <InkBrushDivider />

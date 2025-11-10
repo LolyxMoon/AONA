@@ -5,6 +5,7 @@ import dynamic from "next/dynamic"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { InkBrushDivider } from "@/components/ink-brush-divider"
+import { PageHeading } from "@/components/page-heading"
 
 // Dynamic import for Leaflet to avoid SSR issues
 const LeafletMap = dynamic(() => import("@/components/atlas/leaflet-map"), { ssr: false })
@@ -88,21 +89,16 @@ export default function AtlasPage() {
     <div className="min-h-screen bg-background pt-20">
       {/* Header */}
       <div className="container mx-auto px-6 py-12">
-        <div className="max-w-3xl">
-          <h1 className="text-5xl font-light tracking-widest text-foreground mb-6">
-            Water Atlas
-          </h1>
-          <p className="text-lg font-light text-muted-foreground leading-relaxed tracking-wide">
-            Real-time water quality monitoring powered by USGS Water Services, Open-Meteo weather API,
-            and on-chain data from Switchboard oracles.
-          </p>
-          <div className="flex gap-2 mt-6">
-            <Badge variant="outline" className="text-xs">🌐 Open-Meteo API</Badge>
-            <Badge variant="outline" className="text-xs">💧 USGS Water Services</Badge>
-            <Badge variant="outline" className="text-xs">⛓️ Switchboard Oracle</Badge>
-            <Badge variant="outline" className="text-xs border-green-500/50 text-green-500">🔴 LIVE</Badge>
-          </div>
-        </div>
+        <PageHeading
+          title="Water Atlas"
+          subtitle="Real-time water quality monitoring powered by USGS Water Services, Open-Meteo weather API, and on-chain data from Switchboard oracles."
+          badges={[
+            { label: "Open-Meteo API", icon: "🌐" },
+            { label: "USGS Water Services", icon: "💧" },
+            { label: "Switchboard Oracle", icon: "⛓️" },
+            { label: "Live", icon: "🔴", accent: "live" }
+          ]}
+        />
       </div>
 
       <InkBrushDivider />
