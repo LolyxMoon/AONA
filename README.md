@@ -1,15 +1,6 @@
 # AONA
 
-**Autonomous Oracle Network for Aquatic monitoring** — Real water protection through decentralized infrastructure and AI-powered analysis on Solana.
-
-[![Solana](https://img.shields.io/badge/Solana-Devnet-9945FF?logo=solana)](https://solana.com)
-[![x402](https://img.shields.io/badge/x402-Protocol-00D4AA)](https://x402.org)
-[![Switchboard](https://img.shields.io/badge/Switchboard-Oracle-FF6B35)](https://switchboard.xyz)
-[![AgentPay](https://img.shields.io/badge/AgentPay-Demo-00D4AA)](https://agentpay.com)
-[![Phantom](https://img.shields.io/badge/Phantom-CASH-8B5CF6)](https://phantom.app/cash)
-[![License](https://img.shields.io/badge/License-MIT-blue)](./LICENSE)
-
----
+**Autonomous Oracles for Networked Aquatic systems** — Real water protection through decentralized infrastructure and AI-powered analysis on Solana.
 
 ## 🌊 Mission
 
@@ -22,8 +13,25 @@ Transform water quality monitoring from reactive crisis management to **proactiv
 - **📊 Oracle Integration** — Switchboard price feeds for transparent USD pricing
 - **🔗 Real-Time Intelligence** — USGS + Open-Meteo + blockchain synthesis
 
+[![Solana](https://img.shields.io/badge/Solana-Devnet-9945FF?logo=solana)](https://solana.com)
+[![x402](https://img.shields.io/badge/x402-Protocol-00D4AA)](https://x402.org)
+[![Switchboard](https://img.shields.io/badge/Switchboard-Oracle-FF6B35)](https://switchboard.xyz)
+[![AgentPay](https://img.shields.io/badge/AgentPay-Demo-00D4AA)](https://agentpay.com)
+[![Phantom](https://img.shields.io/badge/Phantom-CASH-8B5CF6)](https://phantom.app/cash)
+[![License](https://img.shields.io/badge/License-MIT-blue)](./LICENSE)
 
 ---
+### Explore Key Pages
+
+| Page | Purpose |
+|------|---------|
+| **`/dashboard`** | Network overview + real-time agent activity |
+| **`/atlas`** | Interactive map (Open-Meteo + USGS + AONA nodes) |
+| **`/nodes`** | Sensor network with reputation rankings |
+| **`/alerts`** | AI-generated water quality alerts (EPA standards) |
+| **`/contribute`** | Submit smartphone sensor reports → earn Phantom CASH |
+| **`/idl`** | Solana program documentation |
+
 
 ## ⚡ Quick Start (5 Minutes)
 
@@ -52,17 +60,6 @@ npm run agent
 npm run dev
 # Open http://localhost:3000
 ```
-
-### 5. Explore Key Pages
-| Page | Purpose |
-|------|---------|
-| **`/dashboard`** | Network overview + real-time agent activity |
-| **`/atlas`** | Interactive map (Open-Meteo + USGS + AONA nodes) |
-| **`/nodes`** | Sensor network with reputation rankings |
-| **`/alerts`** | AI-generated water quality alerts (EPA standards) |
-| **`/contribute`** | Submit smartphone sensor reports → earn Phantom CASH |
-| **`/idl`** | Solana program documentation |
-
 ---
 
 ## 🏗️ Architecture
@@ -107,6 +104,7 @@ npm run dev
 │  Contribution portal │ Earn Phantom CASH
 └──────────────────────┘
 ```
+---
 
 **Program Address**: `3SPZr1HBntkGvrTUCZnivEpCm4PsShHZ8nbxYeLUotwL`
 **Network**: Solana Devnet
