@@ -22,7 +22,6 @@ Transform water quality monitoring from reactive crisis management to **proactiv
 - **📊 Oracle Integration** — Switchboard price feeds for transparent USD pricing
 - **🔗 Real-Time Intelligence** — USGS + Open-Meteo + blockchain synthesis
 
-**Live Impact**: ~1,500 people protected | 98.5% uptime | 10x cost savings vs. emergency response
 
 ---
 
@@ -294,36 +293,6 @@ Anyone can contribute water quality reports using their smartphone:
 
 Making **water stewardship economically sustainable** for everyday contributors worldwide.
 
----
-
-## 🚀 Production Checklist
-
-### Mainnet Migration
-- [ ] Deploy Anchor program to mainnet
-- [ ] Migrate Switchboard → Pyth Network oracles
-- [ ] Configure production RPC endpoints
-- [ ] Add API authentication + rate limiting
-
-### DePIN Expansion
-- [ ] Launch smartphone sensor app (iOS/Android)
-- [ ] Implement on-chain reputation system
-- [ ] Set up contributor rewards (token economics)
-
-### Security
-- [ ] Smart contract audit
-- [ ] Secure key management (AWS Secrets Manager)
-- [ ] Set up monitoring (Datadog/Sentry)
-
----
-
-## 🎨 Design Philosophy
-
-**Aqua-Shodō Minimalism** — Zen ink calligraphy meets hydrology-tech:
-
-- Sacred reverence for water as a living system
-- Scientific rigor with temple-tech aesthetic
-- Data as intelligence, blockchain as permanence
-- Calm, elegant, spacious UI/UX
 
 ---
 
@@ -350,12 +319,14 @@ Built with technologies advancing the Solana ecosystem:
 
 - **[GitHub Repository](https://github.com/ValenteCreativo/AONA)**
 - **[Solana Explorer](https://explorer.solana.com/address/3SPZr1HBntkGvrTUCZnivEpCm4PsShHZ8nbxYeLUotwL?cluster=devnet)**
-- **[x402 Protocol](https://x402.org)**
-- **[USGS Water Services](https://waterservices.usgs.gov)**
+- **[Presentation](https://gamma.app/docs/AONA-3erna4xank1sxx3)**
+- **[DEMO Video](https://youtu.be/g_UUSH_QMWU)**
+- **[Pitch Video](https://youtu.be/pxjT5Wzm8fs)**
 
 ---
 
-> "Perfection is achieved, not when there is nothing more to add, but when there is nothing left to take away."
-> — Antoine de Saint-Exupéry
+🌊 **Water knows. The network translates. AONA.** 🌊
 
-🌊 **Water knows. The network translates. Communities protect. AONA.** 🌊
+
+
+*From México with 💙*
