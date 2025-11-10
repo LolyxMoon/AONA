@@ -12,7 +12,7 @@ export function Header() {
 
   const links = [
     { href: "/", label: "Home" },
-    { href: "/dashboard", label: "🔴 Dashboard", highlight: true },
+    { href: "/dashboard", label: "Dashboard", highlight: true },
     { href: "/atlas", label: "Atlas" },
     { href: "/impact", label: "Impact" },
     { href: "/insight", label: "Insight" },
@@ -20,6 +20,7 @@ export function Header() {
     { href: "/alerts", label: "Alerts" },
     { href: "/contribute", label: "Contribute" },
     { href: "/integrate", label: "Integrate" },
+    { href: "/about", label: "About" },
   ]
 
   return (
